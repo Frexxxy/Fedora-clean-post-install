@@ -33,7 +33,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 ### DNF
 ``` console
-sudo dnf install fuse starship
+sudo dnf install fuse
 ```
 
 ### Flatpaks
@@ -64,17 +64,33 @@ nautilus -q
 # Force thumbnail generation
 rm -rf ~/.cache/thumbnails/*
 ```
+### Starship
+#### Install Starship
+``` console
+curl -sS https://starship.rs/install.sh | sh
+```
+
+#### Install nerd font
+https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip
+
+#### Update config from bash
+``` console
+sudo nano ~/.bashrc
+```
+Add the following at the end:
+``` console
+eval "$(starship init bash)"
+```
+
+#### Update config from starship
+``` console
+starship preset tokyo-night -o ~/.config/starship.toml
+```
 
 ### KDrive
 
 ## Configuration
-### Starship
-``` console
-add_newline = true
-[charater] 
-success_symbol = '[✔](green)'
-error_symbol = '[✘](bold red)'
-```
+
 ## Uninstall Software
 dnf remove firefox
 ## System settings
