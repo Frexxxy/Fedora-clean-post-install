@@ -33,7 +33,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 ### DNF
 ``` console
-sudo dnf install fuse
+sudo dnf install fuse evolution 
 ```
 
 ### Flatpaks
@@ -145,10 +145,24 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 dnf install qtpass
 ```
 
+### Joplin
+``` console
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+```
+
 ## Configuration
+### Evolution
+1. Add Mail account
+2. Add calendar account
+3. Set alias "outlook"
+   
+### 
 
 ## Uninstall Software
+``` console
 dnf remove firefox
+```
+
 ## System settings
 ### Berg als Hintergrund
 ### Nachtlicht aktivieren nach Sonnenstand
