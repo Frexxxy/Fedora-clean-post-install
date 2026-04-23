@@ -38,7 +38,7 @@ sudo dnf install fuse evolution
 
 ### Flatpaks
 ``` console
-sudo flatpak install flathub it.mijorus.gearlever io.github.CyberTimon.RapidRAW app.zen_browser.zen org.kde.kate
+sudo flatpak install flathub it.mijorus.gearlever io.github.CyberTimon.RapidRAW app.zen_browser.zen org.kde.kate md.obsidian.Obsidian
 ```
 
 ### RAW Thumbnails
