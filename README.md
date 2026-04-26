@@ -24,6 +24,20 @@ sudo fwupdmgr get-deevices
 sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ```
+## Uninstall Software
+``` console
+dnf remove firefox
+```
+
+## System settings
+### Berg als Hintergrund
+
+### Nachtlicht aktivieren nach Sonnenstand
+Temperatur 3800
+
+### Hell und Dunkel nach Sonnenstand
+
+### Super Key + T = Terminal
 
 ## Install software
 ### Prereqs
@@ -36,34 +50,47 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 sudo dnf install fuse evolution 
 ```
 
+#### Configuration Evolution
+1. Add Mail account
+2. Add calendar account
+3. Set alias "outlook"
+
+
 ### Flatpaks
 ``` console
 sudo flatpak install flathub it.mijorus.gearlever io.github.CyberTimon.RapidRAW app.zen_browser.zen org.kde.kate md.obsidian.Obsidian
 ```
 
-### RAW Thumbnails
+### KDrive
+1. Download file from https://www.infomaniak.com/en/apps/download-kdrive
+2. Install, Login
+
+### Passwordmanager
+
+### Backup
+
+#### Timeshift for system restore
 ``` console
-# Clone the repo and move to the folder containing the scripts
-git clone https://github.com/emuskardin/nautilus-raw-thumbnails.git
-cd nautilus-raw-thumbnails
-
-# Install dependencies on fedora
-sudo dnf install exiv2 ImageMagick perl-Image-ExifTool
-
-# Move the thumbnailer configuration to the system directory
-sudo cp exiv2raw.thumbnailer /usr/share/thumbnailers/
-
-# Move the thumbnailer script to the bin directory and make it executable
-sudo cp exiv2-thumbnailer.sh /usr/local/bin/
-sudo chmod +x /usr/local/bin/exiv2-thumbnaiTerminal
-
-
-# Restart Nautilus to apply the changes:
-nautilus -q
-
-# Force thumbnail generation
-rm -rf ~/.cache/thumbnails/*
+sudo dnf install timeshift
 ```
+
+##### Configuration
+1. rsync
+2. choose backup location
+3. set backup schema
+4. choose user directories
+5. 
+
+#### BackInTime for personal data backups
+``` console
+dnf remove firefox
+```
+
+#### Foxclone for cloning system
+``` console
+dnf remove firefox
+```
+
 ### Starship
 #### Install Starship
 ``` console
@@ -84,9 +111,9 @@ eval "$(starship init bash)"
 
 #### Update config from starship
 ``` console
-starship preset tokyo-night -o ~/.config/starship.toml
+sudo nano  ~/.config/starship.toml
 ```
-
+Add the following:
 ``` 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -135,38 +162,3 @@ time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 ```
-
-### KDrive
-1. Download file from https://www.infomaniak.com/en/apps/download-kdrive
-2. Install, Login
-
-### Passwordmanager
-``` console
-dnf install qtpass
-```
-
-### Joplin
-``` console
-wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
-```
-
-## Configuration
-### Evolution
-1. Add Mail account
-2. Add calendar account
-3. Set alias "outlook"
-   
-### 
-
-## Uninstall Software
-``` console
-dnf remove firefox
-```
-
-## System settings
-### Berg als Hintergrund
-### Nachtlicht aktivieren nach Sonnenstand
-Temperatur 3800
-
-### Hell und Dunkel nach Sonnenstand
-### Super Key + T = Terminal
