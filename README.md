@@ -1,9 +1,9 @@
-## Reqs
+# Reqs
 - installed Fedora KDE Desktop 
 - internet
 
-## Updates
-### Software
+# Updates
+## Software
 ```console
 sudo dnf upgrade --refresh
 sudo dnf distro-sync
@@ -11,25 +11,25 @@ sudo dnf autoremove
 sudo dnf clean all
 ```
 
-### Flatpak
+## Flatpak
 ```console
 sudo flatpak update
 sudo flatpak uninstall --unused
 ```
 
-### Firmware
+## Firmware
 ``` console
 sudo fwupdmgr refresh --force
 sudo fwupdmgr get-deevices
 sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ```
-## Uninstall Software
+# Uninstall Software
 ``` console
 dnf remove firefox
 ```
 
-## System settings
+# System settings
 - System Settings / Global Design: Enable [Switch to dark mode at night]
 - System Settings / Background image: Mountain
 - System Settings / Night Light
@@ -39,25 +39,25 @@ dnf remove firefox
 -   Search for the "Konsole"
 -   Change the "Start" shortcut to "Meta + T" 
 
-## Install software
-### Prereqs
+# Install software
+## Prereqs
 ``` console
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
-### DNF
+## DNF
 ``` console
 sudo dnf install fuse
 sudo dnf install evolution 
 ```
 
-#### Configuration Evolution
+### Configuration Evolution
 1. Add Mail account
 2. Add calendar account
 3. Set alias "outlook"
 
 
-### Flatpaks
+## Flatpaks
 ``` console
 sudo flatpak install flathub it.mijorus.gearlever
 sudo flatpak install flathub io.github.CyberTimon.RapidRAW
@@ -67,20 +67,20 @@ sudo flatpak install flathub md.obsidian.Obsidian
 sudo flatpak install flathub org.keepassxc.KeePassXC
 ```
 
-### KDrive
+## KDrive
 1. Download file from https://www.infomaniak.com/en/apps/download-kdrive
 2. Install, Login
 
-### Starship
-#### Install Starship
+## Starship
+### Install Starship
 ``` console
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-#### Install nerd font
+### Install nerd font
 https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip
 
-#### Update config from bash
+### Update config from bash
 ``` console
 sudo nano ~/.bashrc
 ```
@@ -89,7 +89,7 @@ Add the following at the end:
 eval "$(starship init bash)"
 ```
 
-#### Update config from starship
+### Update config from starship
 ``` console
 sudo nano  ~/.config/starship.toml
 ```
@@ -143,25 +143,69 @@ style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 ```
 
-## Backup
+# Backup
 
-### Timeshift for system restore
+## Timeshift for system restore
 ``` console
 sudo dnf install timeshift
 ```
 
-#### Configuration
+### Configuration
 1. rsync
 2. choose backup location
 3. set backup schema
 4. choose user directories
 
-### BackInTime for personal data backups
+## BackInTime for personal data backups
 ``` console
 dnf install backintime
 ```
 
-### Foxclone for cloning system
+## Foxclone for cloning system
 ``` console
 dnf remove firefox
+```
+
+# Setup Raid
+- Wipe data
+``` console
+sudo wipefs -a /dev/sda
+sudo wipefs -a /dev/sdb
+```
+- Create RAID
+``` console
+sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sda /dev/sdb
+```
+
+``` console
+sudo mkfs.ext4 /dev/md0
+```
+
+``` console
+sudo mkdir -p /mnt/raid
+sudo mount /dev/md0 /mnt/raid
+```
+- Automount
+``` console
+sudo mdadm --detail --scan | sudo tee -a /etc/mdadm.conf
+```
+
+``` console
+sudo blkid /dev/md0
+```
+
+``` console
+sudo nano /etc/fstab
+```
+
+``` console
+UUID=UUID  /mnt/raid  ext4  defaults,nofail  0  2
+```
+
+``` console
+sudo dracut -f
+```
+
+``` console
+sudo chown $USER:$USER /mnt/raid
 ```
