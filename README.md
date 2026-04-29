@@ -2,27 +2,6 @@
 - installed Fedora KDE Desktop 
 - internet
 
-# Updates
-## Software
-```console
-sudo dnf upgrade --refresh
-sudo dnf distro-sync
-sudo dnf autoremove
-sudo dnf clean all
-```
-
-## Flatpak
-```console
-sudo flatpak update
-sudo flatpak uninstall --unused
-```
-
-## Firmware
-``` console
-sudo fwupdmgr refresh --force
-sudo fwupdmgr get-deevices
-sudo fwupdmgr get-updates
-sudo fwupdmgr update
 ```
 # Uninstall Software
 ``` console
