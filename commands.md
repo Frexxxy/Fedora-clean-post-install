@@ -21,7 +21,13 @@ sudo fwupdmgr get-deevices
 sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ```
-## Histroy
+
+## Uninstall Software
+``` console
+dnf remove packagename
+```
+
+## History
 ### All updated packages
 ``` console
 rpm -qa --qf '%{INSTALLTIME} (%{INSTALLTIME:date}): %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' | sort -n
