@@ -30,14 +30,14 @@ dnf remove firefox
 ```
 
 ## System settings
-### Berg als Hintergrund
-
-### Nachtlicht aktivieren nach Sonnenstand
-Temperatur 3800
-
-### Hell und Dunkel nach Sonnenstand
-
-### Super Key + T = Terminal
+- System Settings / Global Design: Enable [Switch to dark mode at night]
+- System Settings / Background image: Mountain
+- System Settings / Night Light
+-   Switching times: sunrise and sunset
+-   Nighttime temperature: 3800K
+- System Settings / Shortcuts:
+-   Search for the "Konsole"
+-   Change the "Start" shortcut to "Meta + T" 
 
 ## Install software
 ### Prereqs
