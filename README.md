@@ -47,7 +47,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 ### DNF
 ``` console
-sudo dnf install fuse evolution 
+sudo dnf install fuse
+sudo dnf install evolution 
 ```
 
 #### Configuration Evolution
@@ -58,38 +59,17 @@ sudo dnf install fuse evolution
 
 ### Flatpaks
 ``` console
-sudo flatpak install flathub it.mijorus.gearlever io.github.CyberTimon.RapidRAW app.zen_browser.zen org.kde.kate md.obsidian.Obsidian
+sudo flatpak install flathub it.mijorus.gearlever
+sudo flatpak install flathub io.github.CyberTimon.RapidRAW
+sudo flatpak install flathub app.zen_browser.zen
+sudo flatpak install flathub org.kde.kate
+sudo flatpak install flathub md.obsidian.Obsidian
+sudo flatpak install flathub org.keepassxc.KeePassXC
 ```
 
 ### KDrive
 1. Download file from https://www.infomaniak.com/en/apps/download-kdrive
 2. Install, Login
-
-### Passwordmanager
-
-### Backup
-
-#### Timeshift for system restore
-``` console
-sudo dnf install timeshift
-```
-
-##### Configuration
-1. rsync
-2. choose backup location
-3. set backup schema
-4. choose user directories
-5. 
-
-#### BackInTime for personal data backups
-``` console
-dnf remove firefox
-```
-
-#### Foxclone for cloning system
-``` console
-dnf remove firefox
-```
 
 ### Starship
 #### Install Starship
@@ -161,4 +141,27 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+```
+
+## Backup
+
+### Timeshift for system restore
+``` console
+sudo dnf install timeshift
+```
+
+#### Configuration
+1. rsync
+2. choose backup location
+3. set backup schema
+4. choose user directories
+
+### BackInTime for personal data backups
+``` console
+dnf install backintime
+```
+
+### Foxclone for cloning system
+``` console
+dnf remove firefox
 ```
