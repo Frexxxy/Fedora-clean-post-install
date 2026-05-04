@@ -32,7 +32,7 @@ sudo dnf install evolution
 
 ### Configuration Evolution
 1. Add Mail account
-2. Add calendar account
+2. Add calendar account as CalDav
 3. Set alias "outlook"
 
 
